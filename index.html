@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>chartjs</title>
+  <style>
+  .container {
+    width: 80%;
+    margin: 15px auto;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <h2>Chart.js</h2>
+  <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+    <canvas id="chart"></canvas>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
+<script>
+var ctx = document.getElementById("chart").getContext('2d');
+if(window.innerWidth > 480){
+  ctx.canvas.height = 180;
+}else{
+  ctx.canvas.height = 380;
+}
+var myChart = new Chart(ctx, {
+type: 'pie',
+data: {
+  labels: ["M", "T", "W", "T", "F", "S", "S"],
+  datasets: [{
+    backgroundColor: [
+      "#2ecc71",
+      "#3498db",
+      "#95a5a6",
+      "#9b59b6",
+      "#f1c40f",
+      "#e74c3c",
+      "#34495e"
+    ],
+    data: [12, 19, 3, 17, 28, 24, 7]
+  }]
+}
+});
+</script>
+</body>
+</html>
